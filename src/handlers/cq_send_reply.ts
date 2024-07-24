@@ -13,7 +13,7 @@ export default async (ctx: MyMenuContext) => {
 
   const link = match?.[0].split("/").slice(-1)[0];
 
-  const text = match?.slice(1).join();
+  const text = match?.slice(1).join(" ");
 
   const msg = await ctx.api.sendMessage(GROUP_ID, `${text}`, {
     protect_content: true,
