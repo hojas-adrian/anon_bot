@@ -8,6 +8,7 @@ export default async (ctx: MyContext) => {
 
   if (ctx.session.messages <= 0) {
     return ctx.reply("Tu cuota de 10 mensajes se ha agotado, espera una hora", {
+      protect_content: true,
       reply_parameters: {
         message_id: ctx.message.message_id,
       },
