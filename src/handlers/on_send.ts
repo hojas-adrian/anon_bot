@@ -2,7 +2,7 @@ import { GROUP_ID } from "../helpers/constants.ts";
 import MyContext from "../helpers/context.ts";
 
 export default async (ctx: MyContext) => {
-  if (!ctx.message) {
+  if (!ctx.message || ctx.message.text?.startsWith("/")) {
     return;
   }
 
