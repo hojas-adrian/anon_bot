@@ -31,7 +31,7 @@ export default async (ctx: MyContext) => {
   }
 
   if (ctx.message.forward_origin) {
-    await ctx.forwardMessage(GROUP_ID);
+    return await ctx.forwardMessage(GROUP_ID);
   }
 
   const msg = await ctx.copyMessage(GROUP_ID);
