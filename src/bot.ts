@@ -15,6 +15,6 @@ export const bot = new Bot<MyContext>(BOT_TOKEN);
 bot.use(plugins);
 bot.use(menus);
 bot.use(commands);
-bot.use(inGroup, sendLog);
+// bot.use(inGroup, sendLog);
 bot.use(isPrivate, inPrivate);
 bot.catch(onError);
