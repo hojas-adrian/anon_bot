@@ -1,5 +1,5 @@
 import { NextFunction } from "../deps.ts";
-import { GROUP_ID } from "../helpers/constants.ts";
+import { ADMINS_IDS, GROUP_ID } from "../helpers/constants.ts";
 import MyContext from "../helpers/context.ts";
 
 export default async (ctx: MyContext, next: NextFunction) => {
@@ -12,7 +12,10 @@ export default async (ctx: MyContext, next: NextFunction) => {
   if (
     user.status === "member" ||
     user.status === "creator" ||
-    user.status === "administrator"
+    user.status === "administrator" ||
+    ADMINS_IDS.some((id) => {
+      return ctx.from?.id === +id;
+    })
   ) {
     return await next();
   }
